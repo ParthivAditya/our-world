@@ -13,13 +13,60 @@
 body{
   height:100vh;
   background:linear-gradient(180deg,#ffd6cc,#ffb3b3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
   font-family:'Poppins',sans-serif;
 }
 
+/* TOP BAR */
+.top-bar{
+  position:fixed;
+  top:12px;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  z-index:10;
+}
+
+.top-name{
+  font-size:14px;
+  font-weight:500;
+  color:#8b0000;
+}
+
+.top-heart{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%) rotate(-45deg);
+  width:26px;
+  height:26px;
+  background:#ff4d6d;
+  animation:beat 2.2s infinite;
+}
+
+.top-heart::before,
+.top-heart::after{
+  content:"";
+  width:26px;
+  height:26px;
+  background:#ff4d6d;
+  border-radius:50%;
+  position:absolute;
+}
+
+.top-heart::before{top:-13px}
+.top-heart::after{left:13px}
+
+@keyframes beat{
+  50%{transform:translateX(-50%) rotate(-45deg) scale(1.15)}
+}
+
+/* CENTER CARD */
 .container{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
   text-align:center;
   background:#fffaf3;
   padding:30px 24px;
@@ -42,6 +89,7 @@ p{
   margin-bottom:25px;
 }
 
+/* BUTTONS */
 .memory-btn{
   display:block;
   text-decoration:none;
@@ -53,6 +101,7 @@ p{
   font-weight:500;
   margin-bottom:14px;
   transition:.3s;
+  cursor:pointer;
 }
 
 .memory-btn:hover{
@@ -69,28 +118,47 @@ p{
 
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-name">Satya Prasanna</div>
+  <div class="top-heart"></div>
+  <div class="top-name">Parthiv Aditya</div>
+</div>
+
+<!-- MAIN CARD -->
 <div class="container">
   <h1>Our World 🌍</h1>
   <p>A place where all our memories live forever 💖</p>
 
-  <!-- Valentine Button -->
-  <a class="memory-btn" href="valentines-2026/index.html">
+  <!-- PASSWORD PROTECTED BUTTON -->
+  <div class="memory-btn" onclick="openValentine()">
     ❤️ Valentine’s Day 2026
-  </a>
+  </div>
 
-  <!-- Future buttons -->
-  <a class="memory-btn" href="#" onclick="alert('Coming soon ❤️')">
+  <!-- FUTURE -->
+  <div class="memory-btn" onclick="alert('Coming soon ❤️')">
     ✈️ Our Trips
-  </a>
-
-  <a class="memory-btn" href="#" onclick="alert('Coming soon ❤️')">
-    💌 Love Letters
-  </a>
+  </div>
 
   <div class="footer">
-    From Parthiv, with forever love ❤️
+    Made with love ❤️
   </div>
 </div>
+
+<script>
+function openValentine(){
+  const password = prompt("Enter the secret password ❤️");
+
+  /* CHANGE PASSWORD HERE */
+  const correctPassword = "forever";
+
+  if(password === correctPassword){
+    window.location.href = "valentines-2026/";
+  } else if(password !== null){
+    alert("Wrong password 💔");
+  }
+}
+</script>
 
 </body>
 </html>
