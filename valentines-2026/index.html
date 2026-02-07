@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sad Page</title>
-</head>
+<title>Sad Mood</title>
 
-<body style="background:black; overflow:hidden;">
-
-<script>
-
-// create sad emojis
-for(let i=0;i<100;i++){
-    let e=document.createElement("div");
-    e.innerHTML="😔";
-    e.style.position="absolute";
-    e.style.left=Math.random()*100+"vw";
-    e.style.top=Math.random()*100+"vh";
-    e.style.fontSize="40px";
-    document.body.appendChild(e);
+<style>
+body{
+    margin:0;
+    background:linear-gradient(to bottom, #0f0f0f, #000000);
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-// falling water drops
+/* center sad emoji */
+#sad{
+    font-size:120px;
+    opacity:0.9;
+}
+
+/* water drops */
+.drop{
+    position:fixed;
+    top:-20px;
+    font-size:22px;
+    color:#7ec8e3;
+}
+</style>
+</head>
+
+<body>
+
+<div id="sad">😔</div>
+
+<script>
+// falling drops
 setInterval(function(){
     let d=document.createElement("div");
     d.innerHTML="💧";
-    d.style.position="fixed";
-    d.style.top="-20px";
+    d.className="drop";
     d.style.left=Math.random()*100+"vw";
-    d.style.fontSize="20px";
-    d.style.color="lightblue";
     document.body.appendChild(d);
 
     let pos=0;
     let fall=setInterval(function(){
-        pos+=5;
+        pos+=4;
         d.style.top=pos+"px";
+
         if(pos>window.innerHeight){
             clearInterval(fall);
             d.remove();
         }
     },30);
 
-},200);
-
+},150);
 </script>
 
 </body>
