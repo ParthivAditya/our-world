@@ -300,7 +300,7 @@ const map={
 
 setInterval(()=>{
   document.getElementById("countdown").innerHTML =
-    "Valentine 💖<br>"+timeLeft("2026-02-14");
+    "Valentine's Day 💖<br>"+timeLeft("2026-02-14");
 
   for(const id in map){
     const el=document.getElementById(id);
@@ -318,12 +318,16 @@ setInterval(()=>{
 setInterval(()=>{
   const el=document.createElement("div");
   el.className="fall";
-  el.innerText=Math.random()>0.5?"❄️":"🌹":"🍂":"🌸":"🍁":"🌼";
+
+  const emojis=["❄️","🌹","🍂","🌸","🍁","🌼"];
+  el.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
   el.style.left=Math.random()*100+"vw";
-  el.style.fontSize=(14+Math.random()*20)+"px";
-  el.style.animationDuration=(5+Math.random()*5)+"s";
+  el.style.fontSize=(16+Math.random()*24)+"px";
+  el.style.animationDuration=(4+Math.random()*5)+"s";
+
   document.body.appendChild(el);
-  setTimeout(()=>el.remove(),10000);
+  setTimeout(()=>el.remove(),9000);
 },300);
 
 /* save textarea */
