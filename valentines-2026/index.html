@@ -83,7 +83,8 @@ body{
   height:65%;
   background:#fffdf7;
   border-radius:18px;
-  overflow:hidden;
+  overflow-y:auto;
+  overflow-x:hidden;
   box-shadow:0 15px 25px rgba(0,0,0,.15);
   position:relative;
 }
@@ -184,6 +185,10 @@ footer{
     transform:translateY(-120vh);
     opacity:0;
   }
+}
+.page{
+  min-height:100%;
+  padding-bottom:40px; /* extra space so bottom text doesn't cut */
 }
 
 
