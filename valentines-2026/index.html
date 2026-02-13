@@ -343,19 +343,19 @@ function timeLeft(date){
 }
 
 const map={
-  rose:"2026-02-07",
-  propose:"2026-02-08",
-  choco:"2026-02-09",
-  teddy:"2026-02-10",
-  promise:"2026-02-11",
-  hug:"2026-02-12",
-  kiss:"2026-02-13",
-  valentine:"2026-02-14"
+ rose:"2026-02-07T00:00:00",
+propose:"2026-02-08T00:00:00",
+choco:"2026-02-09T00:00:00",
+teddy:"2026-02-10T00:00:00",
+promise:"2026-02-11T00:00:00",
+hug:"2026-02-12T00:00:00",
+kiss:"2026-02-13T00:00:00",
+valentine:"2026-02-14T00:00:00"
 };
 
 setInterval(()=>{
   document.getElementById("countdown").innerHTML =
-    "Valentine's Day 💖<br>"+timeLeft("2026-02-14");
+    "Valentine's Day 💖<br>"+timeLeft("2026-02-14T00:00:00");
 
   for(const id in map){
     const el=document.getElementById(id);
